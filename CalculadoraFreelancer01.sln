@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculadoraFreelancer01.And
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculadoraFreelancer01.iOS", "CalculadoraFreelancer01\CalculadoraFreelancer01.iOS\CalculadoraFreelancer01.iOS.csproj", "{7871EA87-30FB-49A4-A240-612D541EFBE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculadoraFreelancer01", "CalculadoraFreelancer01\CalculadoraFreelancer01\CalculadoraFreelancer01.csproj", "{66E16096-E779-40D1-8E82-82A56C3AB370}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculadoraFreelancer01", "CalculadoraFreelancer01\CalculadoraFreelancer01\CalculadoraFreelancer01.csproj", "{66E16096-E779-40D1-8E82-82A56C3AB370}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

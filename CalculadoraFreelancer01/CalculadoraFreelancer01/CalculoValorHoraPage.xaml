@@ -32,8 +32,8 @@
                   FontSize="Large"
                   TextColor="Green"/>
 
-            <Button Text="Calcular"
-                   BackgroundColor="#6699ff"
+            <Button Text="Gravar"
+                   BackgroundColor="Blue"
                    TextColor="White"
                    x:Name="CalcularValorHoraButton"/>
 

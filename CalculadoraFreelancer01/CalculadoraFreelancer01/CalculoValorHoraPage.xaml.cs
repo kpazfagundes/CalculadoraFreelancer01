@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CalculadoraFreelancer01.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,6 +33,22 @@ namespace CalculadoraFreelancer01
 
             ValorDaHora.Text = $"{valorHora.ToString("C")} / hora";
 
+            Gravar(valorHora);
+        }
+        private async void Gravar(double valorHora)
+        {
+            var profissionalAzureClient = new AzureRepository();
+
+            profissionalAzureClient.Insert(new Models.Profissional()
+            {
+                ValorGanhoMes = double.Parse(ValorGanhoMes.Text),
+                HorasTrabalhadasPorDia = int.Parse(HorasTrabalhadasPorDia.Text),
+                DiasTrabalhadosPorMes = int.Parse(DiasTrabalhadosPorMes.Text),
+                DiasFeriasPorAno = int.Parse(DiasFeriasPorAno.Text),
+                ValorPorHora = valorHora
+            });
+
+            await App.Current.MainPage.DisplayAlert("Sucesso", "Valor por hora gravado!", "Ok");
         }
     }
 }

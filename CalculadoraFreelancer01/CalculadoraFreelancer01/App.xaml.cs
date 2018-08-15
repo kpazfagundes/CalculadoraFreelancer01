@@ -13,7 +13,7 @@ namespace CalculadoraFreelancer01
 		{
 			InitializeComponent();
 
-			MainPage = new NavigationPage(new CalculoValorHoraPage());
+            MainPage = new NavigationPage(new HomePage());
         }
 
 		protected override void OnStart ()
