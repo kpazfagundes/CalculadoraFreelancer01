@@ -1,41 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            x:Class="CalculadoraFreelancer01.CalculoValorHoraPage"
-            Title="Valor da Hora"
-            Padding="10">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CalculadoraFreelancer01.CalculoValorHoraPage"
+             Title="Valor da Hora"
+             Padding="10">
     <ContentPage.Content>
         <StackLayout>
 
             <Label Text="Valor ganho por mês" />
             <Entry Placeholder="Valor ganho por mês"
-                  x:Name="ValorGanhoMes"
-                  Keyboard="Numeric"/>
+                   Text="{Binding ValorGanhoMes}"
+                   Keyboard="Numeric"/>
 
             <Label Text="Horas trabalhadas por dia" />
             <Entry Placeholder="Horas trabalhadas por dia"
-                  x:Name="HorasTrabalhadasPorDia"
-                  Keyboard="Numeric"/>
+                   Text="{Binding HorasTrabalhadasPorDia}"
+                   Keyboard="Numeric"/>
 
             <Label Text="Dias trabalhados por mês" />
             <Entry Placeholder="Dias trabalhados por mês"
-                  x:Name="DiasTrabalhadosPorMes"
-                  Keyboard="Numeric"/>
+                   Text="{Binding DiasTrabalhadosPorMes}"
+                   Keyboard="Numeric"/>
 
             <Label Text="Dias de férias por ano" />
             <Entry Placeholder="Dias de férias por ano"
-                  x:Name="DiasFeriasPorAno"
-                  Keyboard="Numeric"/>
+                   Text="{Binding DiasFeriasPorAno}"
+                   Keyboard="Numeric"/>
 
-            <Label Text="R$ 00,00 / hora"
-                  x:Name="ValorDaHora"
-                  FontSize="Large"
-                  TextColor="Green"/>
+            <Label Text="{Binding ValorDaHora, StringFormat='{0:C} / hora'}"
+                   FontSize="Large"
+                   TextColor="Green"/>
 
             <Button Text="Gravar"
-                   BackgroundColor="Blue"
-                   TextColor="White"
-                   x:Name="CalcularValorHoraButton"/>
+                    BackgroundColor="#6699ff"
+                    TextColor="White"                    
+                    Command="{Binding GravarCommand}"/>
 
 
         </StackLayout>
