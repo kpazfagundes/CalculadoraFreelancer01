@@ -1,33 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CalculadoraFreelancer01.ProjetoPage"
+             xmlns:converters="clr-namespace:CalculadoraFreelancer01.Converters"
              Title="Projeto"
-             Padding="10"
-             x:Class="CalculadoraFreelancer01.ProjetoPage">
-    
+             Padding="10">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:MoedaConverter x:Key="MoedaConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
+
             <Label Text="Nome do Projeto" />
             <Entry Placeholder="Nome do projeto"
-                   x:Name="Nome" />
+                   Text="{Binding Nome}" />
 
             <Label Text="Valor por hora" />
             <Entry Placeholder="Valor por hora"
                    Keyboard="Numeric"
-                    x:Name="ValorPorHora" />
+                   Text="{Binding ValorPorHora, Converter={StaticResource MoedaConverter}}"/>
 
             <Label Text="Horas por dia" />
             <Entry Placeholder="Horas por dia"
                    Keyboard="Numeric"
-                    x:Name="HorasPorDia" />
+                   Text="{Binding HorasPorDia}"/>
 
             <Label Text="Dias de duração do projeto" />
             <Entry Placeholder="Dias de duração do projeto"
                    Keyboard="Numeric"
-                    x:Name="DiasDuracaoProjeto" />
+                   Text="{Binding DiasDuracaoProjeto}"/>
 
             <Label FontSize="Large"
-                    x:Name="ValorTotal" />
+                   Text="{Binding ValorTotal, StringFormat='Total: {0:C}'}"/>
 
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -36,15 +42,18 @@
                 </Grid.ColumnDefinitions>
 
                 <Button Grid.Column="0"
-                        BackgroundColor="#CDCDCD"
+                        BackgroundColor="#cdcdcd"
                         Text="Limpar"
-                        x:Name="LimparButton"/>
+                        Command="{Binding LimparCommand}"/>
+
                 <Button Grid.Column="1"
-                    Text="Gravar"
-                    TextColor="White"
-                    BackgroundColor="#6699ff"
-                    x:Name="GravarButton"/>
+                        Text="Gravar"
+                        TextColor="White"
+                        BackgroundColor="#6699ff"
+                        Command="{Binding GravarCommand}"/>
+
             </Grid>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcFreelancer.Infra.Data", "CalcFreelancer.Infra.Data\CalcFreelancer.Infra.Data.csproj", "{35165314-7011-4324-B637-09A6D95414BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35165314-7011-4324-B637-09A6D95414BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35165314-7011-4324-B637-09A6D95414BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35165314-7011-4324-B637-09A6D95414BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35165314-7011-4324-B637-09A6D95414BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6B256D62-719A-4BEF-B777-BE4DA29705FA}
+	EndGlobalSection
+EndGlobal
