@@ -1,18 +1,17 @@
-﻿using CalculadoraFreelancer01.Models;
+﻿using CalcFreelancer.Domain.Profissionais.Repository;
+using CalculadoraFreelancer01.Interfaces;
+using CalculadoraFreelancer01.Models;
 using CalculadoraFreelancer01.Repository;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CalculadoraFreelancer01.Services
 {
-    public class ProfissionalService
+    public class ProfissionalService : IProfissionalService
     {
-        private readonly AzureRepository ProfissionalRepository;
+        private readonly IProfissionalRepository ProfissionalRepository;
 
-        public ProfissionalService()
+        public ProfissionalService(IProfissionalRepository profissionalRepository)
         {
-            ProfissionalRepository = new AzureRepository();
+            ProfissionalRepository = profissionalRepository;
         }
 
         public void Inserir(Profissional profissional)

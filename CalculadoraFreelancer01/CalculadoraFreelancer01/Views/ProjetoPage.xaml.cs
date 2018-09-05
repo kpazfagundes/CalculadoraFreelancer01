@@ -1,5 +1,6 @@
 ﻿using CalculadoraFreelancer01.Repository;
 using CalculadoraFreelancer01.ViewModels;
+using CommonServiceLocator;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace CalculadoraFreelancer01
         public ProjetoPage()
         {
             InitializeComponent();
-            var viewModel = new ProjetoPageViewModel();
+            var viewModel = ServiceLocator.Current.GetInstance<ProjetoPageViewModel>();
             BindingContext = viewModel;
         }
 

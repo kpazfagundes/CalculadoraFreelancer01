@@ -1,4 +1,5 @@
-﻿using CalculadoraFreelancer01.Models;
+﻿using CalculadoraFreelancer01.Interfaces;
+using CalculadoraFreelancer01.Models;
 using CalculadoraFreelancer01.Repository;
 using CalculadoraFreelancer01.Services;
 using CalculadoraFreelancer01.ViewModels.Base;
@@ -12,13 +13,13 @@ namespace CalculadoraFreelancer01.ViewModels
 {
     public class CalculoValorHoraPageViewModel : ViewModelBase
     {
-        private readonly ProfissionalService ProfissionalService;
+        private readonly IProfissionalService ProfissionalService;
 
-        public CalculoValorHoraPageViewModel()
+        public CalculoValorHoraPageViewModel(IProfissionalService profissionalService)
         {
             GravarCommand = new Command(ExecuteGravarCommand);
             Profissional = new Profissional();
-            ProfissionalService = new ProfissionalService();
+            ProfissionalService = profissionalService;
         }
         private double valorGanhoMes;
         public double ValorGanhoMes

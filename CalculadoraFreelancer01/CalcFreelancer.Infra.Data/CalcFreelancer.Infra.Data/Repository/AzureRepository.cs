@@ -1,27 +1,27 @@
-﻿using CalculadoraFreelancer01.Models;
+﻿using CalcFreelancer.Domain.Core.Models;
+using CalcFreelancer.Domain.Interfaces;
 using Microsoft.WindowsAzure.MobileServices;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CalculadoraFreelancer01.Repository
 {
-    public class AzureRepository
+    public class AzureRepository<TEntity> : IRepository<TEntity> where TEntity : Entity
     {
         private IMobileServiceClient Client;
-        private IMobileServiceTable<Profissional> Table;
+        private IMobileServiceTable<TEntity> Table;
 
         public AzureRepository()
         {
-            string MyAppServiceURL = "https://calculadorafreelancer01.azurewebsites.net";
+            string MyAppServiceURL = "rua url aqui";
             Client = new MobileServiceClient(MyAppServiceURL);
-            Table = Client.GetTable<Profissional>();
+            Table = Client.GetTable<TEntity>();
         }
 
-        public async Task<IEnumerable<Profissional>> GetAll()
+        public async Task<IEnumerable<TEntity>> GetAll()
         {
-            var empty = new Profissional[0];
+            var empty = new TEntity[0];
             try
             {
                 return await Table.ToEnumerableAsync();
@@ -32,28 +32,28 @@ namespace CalculadoraFreelancer01.Repository
             }
         }
 
-        public async void Insert(Profissional profissional)
+        public async Task Insert(TEntity tEntity)
         {
-            await Table.InsertAsync(profissional);
+            await Table.InsertAsync(tEntity);
         }
 
-        public async Task Update(Profissional profissional)
+        public async Task Update(TEntity tEntity)
         {
-            await Table.UpdateAsync(profissional);
+            await Table.UpdateAsync(tEntity);
         }
 
-        public async void Delete(Profissional profissional)
+        public async Task Delete(TEntity tEntity)
         {
-            await Table.DeleteAsync(profissional);
+            await Table.DeleteAsync(tEntity);
         }
 
-        public async Task<Profissional> Find(string id)
+        public async Task<TEntity> Find(string id)
         {
             var itens = await Table.Where(i => i.Id == id).ToListAsync();
             return (itens.Count > 0) ? itens[0] : null;
         }
 
-        public async Task<Profissional> GetFirst()
+        public async Task<TEntity> GetFirst()
         {
             var itens = await Table.ToListAsync();
             return (itens.Count > 0) ? itens[0] : null;

@@ -1,4 +1,5 @@
-﻿using CalculadoraFreelancer01.Repository;
+﻿using CalculadoraFreelancer01.Interfaces;
+using CalculadoraFreelancer01.Repository;
 using CalculadoraFreelancer01.Services;
 using CalculadoraFreelancer01.ViewModels.Base;
 using System;
@@ -60,13 +61,13 @@ namespace CalculadoraFreelancer01.ViewModels
         public Command GravarCommand { get; }
         public Command LimparCommand { get; }
 
-        private readonly ProjetoService ProjetoService;
+        private readonly IProjetoService ProjetoService;
 
-        public ProjetoPageViewModel()
+        public ProjetoPageViewModel(IProjetoService projetoService)
         {
             GravarCommand = new Command(ExecuteGravarCommand);
             LimparCommand = new Command(ExecuteLimparCommand);
-            ProjetoService = new ProjetoService();
+            ProjetoService = projetoService;
         }
 
         private void ExecuteLimparCommand()
